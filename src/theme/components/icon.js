@@ -1,7 +1,7 @@
-const LinkStyle = {
+const IconStyle = {
     // Style object for base or default styles.
     baseStyle: {
-    
+       
     },
 
     // Styles for different sizes ("sm", "md", "lg").
@@ -22,4 +22,4 @@ const LinkStyle = {
     },
 }
 
-export default LinkStyle;
+export default IconStyle;

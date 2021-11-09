@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 
 import ColorLabel from "../ColorLabel/ColorLabel";
+import ObjectManager from "../../utils/objects/ObjectManager";
 
 // 1. Import
 import { Icon } from "@chakra-ui/react"
@@ -22,22 +23,67 @@ import { FaInfo, FaRegHeart } from "react-icons/fa"
 import { RiRulerLine } from "react-icons/ri";
 
 import { StarIcon, EmailIcon } from '@chakra-ui/icons';
+import colorsData from "../../assets/json/configuration/colorsData.json";
+
+import CustomDrawer from "../Drawer/Drawer";
+import { useDisclosure } from "@chakra-ui/react";
+import { useBoolean } from "@chakra-ui/react";
 
 
 const ProductDetail = () => {
-    const stampItems = StringManager.getStampList();
-
+    
     // Hooks.
     const [activeColors, setActiveColors] = useState(new Array(8).fill(false));
+    const [activeColorIndex, setActiveColorIndex] = useState(0);
+    const [activeSize, setActiveSize] = useState(null);
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [flag, setFlag] = useBoolean();
+ 
+    
+
+    let activeText = "In den Warenkorb";
+    
+    // Others.
+    const stampItems = StringManager.getStampList();
+    
     // Events.
     const onClickColorLabel = (e, id) => {
         const visibilities = new Array(8).fill(false);
         visibilities[id]=true;
         setActiveColors(visibilities);
+        setActiveColorIndex(id);
+    }
+
+    const onClickSizeButton = (id, order) => {
+        setActiveSize(id);
+
+        if(order){
+            onOpen();
+        }
+    }
+
+    const onClickFavouriteIcon= () => {
+        // variantIcon
+        setFlag.toggle();
+        
     }
 
     // Generate stars.
     const starIcons = [...Array(5).keys()].map((_, index) => <StarIcon boxSize={3} key={index} />);
+
+    // Control for colors.
+    if(activeSize === null){
+        console.log("Active size still null");
+    }else{
+        console.log(`Active color-> ${activeColorIndex}`);
+        console.log(`Active size-> ${activeSize}`);
+    }
+   
+
+    var allColors = colorsData.colors.map(el => el.sizes); // All available colors.
+    const superFoo = ObjectManager.GetObjectValues(allColors[activeColorIndex]); // Color with all specific sizes.
+
+ 
 
     const urls = [
         "https://esprit.scene7.com/is/image/esprit/021EE2J307_451_74",
@@ -89,6 +135,7 @@ const ProductDetail = () => {
                 {
                     urls.map((url, index) => (
                         <ColorLabel 
+                            key={index}
                             id={index} url={url} 
                             onClick={onClickColorLabel} 
                             activeColor={activeColors[index]}  
@@ -102,18 +149,66 @@ const ProductDetail = () => {
             </HStack>
 
             <HStack w="full" h="18%" alignItems="flex-start" justify="flex-start"  flexWrap="wrap" spacing={1}>
-                <Button variant="sizeButton" w="18%" ml={1}>XS</Button>
-                <Button variant="sizeButton" w="18%">S</Button>
-                <Button variant="sizeButton" w="18%">M</Button>
-                <Button variant="sizeButton" w="18%">L</Button>
-                <Button variant="sizeButton" w="18%">XL</Button>
-                <Button variant="sizeButton" w="18%">XXL</Button>
-                <Button variant="soldOutSizeButton" w="18%">
-                    <HStack>
-                        <Text>XS</Text>
-                        <EmailIcon/>
-                    </HStack>
-                </Button>
+                {
+                    superFoo.map(({name, available, order, id}, index) => {
+
+                        // Validations.
+                        let variant;
+                        let requireIcon;
+                        let marginLeft = 0;
+
+                        if (available) {
+                            variant = "sizeButton";
+                        } else {
+                            if (order) {
+                                requireIcon = true;
+                                variant="soldOutSizeButtonContact" // create new variant for this.
+                            }else{
+                                variant="soldOutSizeButton";
+                            }
+                        }
+
+                        // Add margin to first button.
+                        if(index === 1){
+                            marginLeft=5;
+                        }else{
+                            marginLeft=0;
+                        }
+
+                        // Logic for controlling active size when swithzcing colors.
+                        let superVariant = variant;
+                        if((id === activeSize) && available){
+                            superVariant="sizeButtonActive";
+                            // Here I should change status of button in den waren korb.
+                        }
+
+                        if((id === activeSize) && !available){
+                            activeText="Erinnere mich";
+                            // Here I should change status of button in den waren korb.
+                        }
+
+                        return (
+                            <Button
+                                key={id} // Generate unique id (pending).
+                                variant={superVariant}
+                                w="18%"
+                                ml={1}  
+                                // onClick={(e) => setActiveSize(id) }
+                                onClick={(e) => onClickSizeButton(id, order) }
+
+                            >
+                                {!requireIcon && name}
+                                {requireIcon && (
+                                    <HStack>
+                                        <Text>{name}</Text>
+                                        <EmailIcon />
+                                    </HStack>
+                                )}
+                            </Button>
+                        )
+                    })
+                }
+
             </HStack>
 
             <HStack w="full" h="8%" alignItems="center" justify="flex-start"  flexWrap="wrap" spacing={1}>
@@ -155,10 +250,20 @@ const ProductDetail = () => {
 
             <VStack w="full" h="18%" alignItems="center" spacing={2}>
                 <Flex w="100%" justify="space-between" alignItems="center">
-                    <Button size="md" variant="addToBasketButton" flex={6}>In den Warenkorb</Button>
+                    <Button size="md" variant="addToBasketButton" flex={6}>{activeText}</Button>
                     <Spacer flex={1}/>
                     <Box flex={1}>
-                        <Icon border="1px solid #e0e0e0" color="#e0e0e0" h="40px" w="40px"  borderRadius="100%" fontSize="3xl" p={2} as={FaRegHeart} variant="roundIcon" />
+                        <Icon                   
+                            border="1px solid #e0e0e0" 
+                            color={flag ? "#000" : "#e0e0e0"}
+                            h="40px"
+                            w="40px"  
+                            borderRadius="100%" 
+                            fontSize="3xl" p={2} 
+                            as={FaRegHeart} 
+                            onClick={()=>onClickFavouriteIcon()}
+                            
+                        />
                     </Box>
                 </Flex>
 
@@ -182,6 +287,8 @@ const ProductDetail = () => {
                 </Link>
             </VStack>
 
+                {/* Control state here */}
+                <CustomDrawer isOpen={isOpen} onClose={onClose}/>
 
         </VStack>
 

@@ -13,14 +13,30 @@ const ButtonStyle = {
             backgroundColor:"#FFF",
             padding:0,
             _focus:{
-                boxShadow:"none"
+                boxShadow:"none",
+                backgroundColor:"#000",
+                color:"#FFF"
             },
             _hover:{
                 backgroundColor:"#000",
                 color:"#FFF",
             },
-            borderRadius:0
+            borderRadius:0,
         },
+
+        sizeButtonActive:{
+            border:"1px solid #000",
+            backgroundColor:"#000",
+            padding:0,
+            borderRadius:0,
+            color:"#FFF",
+            _focus:{
+                boxShadow:"none",
+                backgroundColor:"#000",
+                color:"#FFF"
+            },
+        },
+
 
         soldOutSizeButton:{
             backgroundColor:"#FFF",
@@ -30,6 +46,20 @@ const ButtonStyle = {
             color:"#dadada",
             _hover:{
                 cursor:"not-allowed"
+            },
+            _focus:{
+                boxShadow:"none"
+            },
+        },
+
+        soldOutSizeButtonContact:{
+            backgroundColor:"#FFF",
+            border:"1px solid #e0e0e0",
+            borderRadius:0,
+            textDecoration:"line-through",
+            color:"#dadada",
+            _hover:{
+                cursor:"pointer"
             },
             _focus:{
                 boxShadow:"none"

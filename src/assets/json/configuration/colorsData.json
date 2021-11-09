@@ -1,0 +1,388 @@
+{
+  "colors": [
+    {
+      "id": "color1",
+      "name": "color1",
+      "sizes": {
+        "1": {
+          "id":0,
+          "name": "XS",
+          "available": false,
+          "order": true
+        },
+        "2": {
+          "id":1,
+          "name": "S",
+          "available": true,
+          "order": false
+        },
+        "3": {
+          "id":2,
+          "name": "M",
+          "available": true,
+          "order": false
+        },
+        "4": {
+          "id":3,
+          "name": "L",
+          "available": true,
+          "order": false
+        },
+        "5": {
+          "id":4,
+          "name": "XL",
+          "available": true,
+          "order": false
+        },
+        "6": {
+          "id":5,
+          "name": "XXL",
+          "available": true,
+          "order": false
+        },
+        "7": {
+          "id":6,
+          "name": "3XL",
+          "available": false,
+          "order": false
+        }
+      }
+    },
+    {
+      "id": "color2",
+      "name": "color2",
+      "sizes": {
+        "1": {
+          "id":0,
+          "name": "XS",
+          "available": true,
+          "order": false
+        },
+        "2": {
+          "id":1,
+          "name": "S",
+          "available": true,
+          "order": false
+        },
+        "3": {
+          "id":2,
+          "name": "M",
+          "available": true,
+          "order": false
+        },
+        "4": {
+          "id":3,
+          "name": "L",
+          "available": true,
+          "order": false
+        },
+        "5": {
+          "id":4,
+          "name": "XL",
+          "available": true,
+          "order": false
+        },
+        "6": {
+          "id":5,
+          "name": "XXL",
+          "available": true,
+          "order": false
+        },
+        "7": {
+          "id":6,
+          "name": "3XL",
+          "available": false,
+          "order": false
+        }
+      }
+    },
+    {
+      "id": "color3",
+      "name": "color3",
+      "sizes": {
+        "1": {
+          "id":0,
+          "name": "XS",
+          "available": true,
+          "order": false
+        },
+        "2": {
+          "id":1,
+          "name": "S",
+          "available": true,
+          "order": false
+        },
+        "3": {
+          "id":2,
+          "name": "M",
+          "available": false,
+          "order": true
+        },
+        "4": {
+          "id":3,
+          "name": "L",
+          "available": false,
+          "order": true
+        },
+        "5": {
+          "id":4,
+          "name": "XL",
+          "available": false,
+          "order": false
+        },
+        "6": {
+          "id":5,
+          "name": "XXL",
+          "available": false,
+          "order": true
+        },
+        "7": {
+          "id":6,
+          "name": "3XL",
+          "available": true,
+          "order": false
+        }
+      }
+    },
+    {
+      "id": "color4",
+      "name": "color4",
+      "sizes": {
+        "1": {
+          "id":0,
+          "name": "XS",
+          "available": true,
+          "order": false
+        },
+        "2": {
+          "id":1,
+          "name": "S",
+          "available": true,
+          "order": false
+        },
+        "3": {
+          "id":2,
+          "name": "M",
+          "available": true,
+          "order": false
+        },
+        "4": {
+          "id":3,
+          "name": "L",
+          "available": true,
+          "order": false
+        },
+        "5": {
+          "id":4,
+          "name": "XL",
+          "available": true,
+          "order": false
+        },
+        "6": {
+          "id":5,
+          "name": "XXL",
+          "available": true,
+          "order": false
+        },
+        "7": {
+          "id":6,
+          "name": "3XL",
+          "available": false,
+          "order": false
+        }
+      }
+    },
+    {
+      "id": "color5",
+      "name": "color5",
+      "sizes": {
+        "1": {
+          "id":0,
+          "name": "XS",
+          "available": true,
+          "order": false
+        },
+        "2": {
+          "id":1,
+          "name": "S",
+          "available": true,
+          "order": false
+        },
+        "3": {
+          "id":2,
+          "name": "M",
+          "available": true,
+          "order": false
+        },
+        "4": {
+          "id":3,
+          "name": "L",
+          "available": true,
+          "order": false
+        },
+        "5": {
+          "id":4,
+          "name": "XL",
+          "available": true,
+          "order": false
+        },
+        "6": {
+          "id":5,
+          "name": "XXL",
+          "available": true,
+          "order": false
+        },
+        "7": {
+          "id":6,
+          "name": "3XL",
+          "available": false,
+          "order": false
+        }
+      }
+    },
+    {
+      "id": "color6",
+      "name": "color6",
+      "sizes": {
+        "1": {
+          "id":0,
+          "name": "XS",
+          "available": true,
+          "order": false
+        },
+        "2": {
+          "id":1,
+          "name": "S",
+          "available": true,
+          "order": false
+        },
+        "3": {
+          "id":2,
+          "name": "M",
+          "available": true,
+          "order": false
+        },
+        "4": {
+          "id":3,
+          "name": "L",
+          "available": true,
+          "order": false
+        },
+        "5": {
+          "id":4,
+          "name": "XL",
+          "available": true,
+          "order": false
+        },
+        "6": {
+          "id":5,
+          "name": "XXL",
+          "available": true,
+          "order": false
+        },
+        "7": {
+          "id":6,
+          "name": "3XL",
+          "available": false,
+          "order": false
+        }
+      }
+    },
+    {
+      "id": "color7",
+      "name": "color7",
+      "sizes": {
+        "1": {
+          "id":0,
+          "name": "XS",
+          "available": true,
+          "order": false
+        },
+        "2": {
+          "id":1,
+          "name": "S",
+          "available": true,
+          "order": false
+        },
+        "3": {
+          "id":2,
+          "name": "M",
+          "available": true,
+          "order": false
+        },
+        "4": {
+          "id":3,
+          "name": "L",
+          "available": true,
+          "order": false
+        },
+        "5": {
+          "id":4,
+          "name": "XL",
+          "available": true,
+          "order": false
+        },
+        "6": {
+          "id":5,
+          "name": "XXL",
+          "available": true,
+          "order": false
+        },
+        "7": {
+          "id":6,
+          "name": "3XL",
+          "available": false,
+          "order": false
+        }
+      }
+    },
+    {
+      "id": "color8",
+      "name": "color8",
+      "sizes": {
+        "1": {
+          "id":0,
+          "name": "XS",
+          "available": true,
+          "order": false
+        },
+        "2": {
+          "id":1,
+          "name": "S",
+          "available": true,
+          "order": false
+        },
+        "3": {
+          "id":2,
+          "name": "M",
+          "available": true,
+          "order": false
+        },
+        "4": {
+          "id":3,
+          "name": "L",
+          "available": true,
+          "order": false
+        },
+        "5": {
+          "id":4,
+          "name": "XL",
+          "available": true,
+          "order": false
+        },
+        "6": {
+          "id":5,
+          "name": "XXL",
+          "available": true,
+          "order": false
+        },
+        "7": {
+          "id":6,
+          "name": "3XL",
+          "available": false,
+          "order": false
+        }
+      }
+    }
+  ]
+}
