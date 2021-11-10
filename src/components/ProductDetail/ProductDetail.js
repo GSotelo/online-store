@@ -100,7 +100,7 @@ const ProductDetail = () => {
 
     return (
 
-        <VStack bg="#FFF" w="full" h="full" spacing={1} p={4}>
+        <VStack bg="#FFF" w="full" h="full" spacing={1}>
             {/* <StampList items={stampItems} /> */}
             <HStack w="full" h="5%" alignItems="center" spacing={4}>
                 <Text variant="stamp" p={1}>Organic</Text>
