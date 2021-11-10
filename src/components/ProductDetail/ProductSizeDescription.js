@@ -4,12 +4,21 @@ import {
     HStack,
     Link,
     Icon,
+    Button
 } from "@chakra-ui/react";
-
+import { MdInfo } from "react-icons/md";
 import { RiRulerLine } from "react-icons/ri";
 
 const ProductSizeDescription = () => (
     <>
+        <HStack w="full" h="8%" alignItems="center" justify="flex-start" flexWrap="wrap" spacing={1}>
+                    <Button variant="findSizeButton" p={2} size="md" ml={1}>
+                        <HStack>
+                            <Text>Find deine Größe</Text>
+                            <Icon as={MdInfo} />
+                        </HStack>
+                    </Button>
+            </HStack>
         <HStack w="full" h="6%" alignItems="flex-end" justify="flex-start" flexWrap="wrap" spacing={1}>
             <Link>
                 <HStack>
