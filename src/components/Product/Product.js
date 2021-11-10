@@ -1,19 +1,25 @@
 import React from "react";
 import ProductDetail from "../ProductDetail/ProductDetail";
 import ProductImage from "../ProductImage/ProductImage";
-import { Wrap } from "@chakra-ui/react";
-
-import withCenteredComponent from "../hocs/withCenteredComponent";
+import { 
+    Container,
+    Flex,
+    VStack, 
+ } from "@chakra-ui/react";
 
 const Product = () => {
-    let EnhancedProductImage = withCenteredComponent(ProductImage);
-    let EnhancedProductDetail = withCenteredComponent(ProductDetail);
-
     return (
-        <Wrap spacing="1rem">
-            <EnhancedProductImage />
-            <EnhancedProductDetail />
-        </Wrap>
+        <Container maxW="max">
+            <Flex direction={{base:"column", md:"row"}} >
+                <VStack w={["100%, 100%, 100%", "100%", "70%"]} padding={1} >
+                    <ProductImage />
+                </VStack>
+
+                <VStack w={["100%, 100%, 100%", "100%", "30%"]}  >
+                    <ProductDetail />
+                </VStack>
+            </Flex>
+        </Container>
     );
 };
 
