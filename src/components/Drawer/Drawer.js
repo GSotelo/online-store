@@ -1,20 +1,14 @@
 import {
     Drawer,
     DrawerBody,
-    DrawerFooter,
     DrawerHeader,
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
-    Button,
     Progress,
-    
   } from "@chakra-ui/react";
 
- 
   const CustomDrawer = ({isOpen, onClose}) => {
-
-
     return(
         <Drawer
         isOpen={isOpen}

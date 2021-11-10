@@ -1,18 +1,10 @@
 import React from "react";
-import { useState } from "react";
-import {
-    Flex,
-    Text,
-    HStack,
-    Container,
-    VStack,
-    Box,
-    Image
-} from "@chakra-ui/react";
+import { Image } from "@chakra-ui/react";
+
 
 const ColorLabel = ({ id, url, onClick, activeColor }) => {
-
-     
+    console.log("color")
+    console.log(activeColor);
     return (
         <Image
             src={url}
