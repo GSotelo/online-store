@@ -7,8 +7,6 @@ import {
 
 const ProductDecription = () => (
     <>
-
-
         <HStack w="full" h="7%" alignItems="center" spacing={4}>
             <Text variant="productName" >Sweatshirt aus 100% Organic Cotton</Text>
         </HStack>

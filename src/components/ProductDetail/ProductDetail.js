@@ -3,7 +3,6 @@ import ColorLabel from "../ColorLabel/ColorLabel";
 import ObjectManager from "../../utils/objects/ObjectManager";
 import { EmailIcon } from '@chakra-ui/icons';
 import colorsDataAsJSON from "../../assets/json/configuration/colorsData.json";
-import ColorLabelList from "./ColorLabelList";
 import CustomDrawer from "../Drawer/Drawer";
 import Fitname from "./Fitname";
 import ProductCTA from "./ProductCTA";
@@ -31,26 +30,27 @@ const ProductDetail = (props) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     // General.
-    let activeText = "In den Warenkorb";
+    let activeText = "Im den Warenkorb";
 
     // Events.
     const onClickColorLabel = (e, id) => {
         const visibilities = new Array(8).fill(false);
         visibilities[id] = true;
         setActiveColors(visibilities); // Track which is color is active selection.
-        setActiveColorIndex(id); // Depending on index, display product stock data. 
+        setActiveColorIndex(id);
     }
 
-    const onClickSizeButton = (id, order) => {
+    const onClickSizeButton = (id, order, activeText) => {
         /*
         * id=0 => First color
         * id=6 => Last color
         */
-
         // Order means: Size is sold out but you can still order the product and wait for it.
         setActiveSize(id);
+        console.log(activeText) // Depending on index, display product stock data. 
         if (order) onOpen();
     }
+    
 
     // Focus given to heart icon.
     const onClickFavouriteIcon = () => setFlag.toggle();
@@ -87,12 +87,12 @@ const ProductDetail = (props) => {
                 onClickColorLabel={onClickColorLabel}
                 activeColors={activeColors[activeColorIndex]}
             /> */}
-
+            
             <HStack w="full" h="4%" alignItems="center" spacing={4}>
                 <Text variant="productColorDescriptionLabel" >Größe</Text>
             </HStack>
 
-            {/* Button logic. To be extracted. */}
+            {/* Button logic. Lift state up. To be done. */}
             <HStack w="full" h="18%" alignItems="flex-start" justify="flex-start" flexWrap="wrap" spacing={1}>
                 {
                     colorSizeData.map(({ name, available, order, id }, index) => {
@@ -100,7 +100,7 @@ const ProductDetail = (props) => {
                         // Validations.
                         let variant;
                         let requireIcon;
-                        let marginLeft = 0;
+                       
 
                         if (available) {
                             variant = "sizeButton";
@@ -111,13 +111,6 @@ const ProductDetail = (props) => {
                             } else {
                                 variant = "soldOutSizeButton";
                             }
-                        }
-
-                        // Add margin to first button.
-                        if (index === 1) {
-                            marginLeft = 5;
-                        } else {
-                            marginLeft = 0;
                         }
 
                         // Logic for controlling active size when swithzcing colors.
@@ -154,6 +147,11 @@ const ProductDetail = (props) => {
                     })
                 }
             </HStack>
+             {/* <SizeButtonList 
+                colorSizeData={colorSizeData} 
+                activeSize={activeSize}
+                onClickSizeButton={onClickSizeButton}
+            /> */}
 
             <ProductSizeDescription />
             <ProductCTA 
